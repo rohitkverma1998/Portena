@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title
+      ><ion-icon name="arrow-back" [routerLink]="['/dashboard/chat']"></ion-icon
+      >User: {{ userGID }}</ion-title
+    >
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <div *ngFor="let chatText of userChat">
+    <div class="message">
+      <div
+        [ngClass]="{
+          sender: chatText.fromGID === GID,
+          reciever: chatText.fromGID !== GID
+        }"
+      >
+        {{ chatText.message }}
+      </div>
+    </div>
+  </div>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <form (ngSubmit)="sendTextMessage()" [formGroup]="chat" class="form">
+      <ion-input formControlName="textInput" class="input-text"></ion-input>
+      <ion-button type="submit">
+        <ion-icon name="send" class="button button-clear" class="input-button"></ion-icon>
+      </ion-button>
+    </form>
+  </ion-toolbar>
+</ion-footer>
