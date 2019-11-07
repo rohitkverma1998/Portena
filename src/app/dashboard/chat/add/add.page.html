@@ -1,0 +1,17 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>add</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <form (ngSubmit)="AddUserWithGID()">
+    <ion-item>
+      <ion-label>Enter another user's GID</ion-label>
+      <ion-input type="text" [(ngModel)]="newCustomerGID" name="newCustomerGID"></ion-input>
+    </ion-item>
+      <ion-button color="primary" type="submit">
+        Submit
+      </ion-button>
+  </form>
+</ion-content>
